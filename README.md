@@ -1,25 +1,78 @@
-# sketch_dqn
+# Sketch-DQN
 
-TODO(b/314317097): Add a description for your new project, explain what is
-being released here, etc... Additional, the following sections are normally
-expected for all releases. Feel free to add additional sections if appropriate
-for your project.
+This repo contains the Atari experiments in the paper
+[Distributional Bellman Operator over Mean Embeddings]()
+by Li Kevin Wenliang,
+Grégoire Delétang
+Matthew Aitchison,
+Marcus Hutter,
+Anian Ruoss,
+Arthur Gretton, and Mark Rowland
+
+This is developed on top of [DQN Zoo](https://github.com/google-deepmind/dqn_zoo).
+
+NOTE: Only Python 3.9 and above and Linux is supported.
 
 ## Installation
 
-Write instructions for how the user should install your code. The instructions
-should ideally be valid when copy-pasted. You can combine this with the Usage
-section if there's no separate installation step.
+Prerequisites for these steps are a NVIDIA GPU with recent CUDA drivers.
+
+1. Follow steps 1-4 of the Quick start of DQN Zoo.
+
+    Install [Docker](http://docs.docker.com/) version 19.03 or later (for the `--gpus` flag).
+
+    Install [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-container-toolkit).
+
+    Enable [sudoless docker](http://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+
+    Verify the previous steps were successful e.g. by running: \
+    `docker run --gpus all --rm nvidia/cuda:11.1.1-base nvidia-smi`
+
+2. Clone this repo and go to the directory
+
+    ```
+    git clone https://github.com/deepmind/sketch_dqn.git
+    cd sketch_dqn
+    ```
+
+The directory tree closely follows that of DQN Zoo, so it is also possible to move
+the `dqn_zoo/sketch_dqn` file under the existing `dqn_zoo` if you have DQN ZOO
+installed.
 
 ## Usage
+Run `run.sh`. The default hyperparameters are as reported in the paper.
 
-Write example usage of your code. The instructions should ideally be valid when
-copy-pasted, and will be used by your technical reviewer to verify that your
-package functions correctly.
+We note the following key implementations details for Sketch-DQN.
+
+* Various sketch feature functions are in `dqn_zoo/feature_maps.py`, together with
+the computations of sketch Bellman coefficients $B_r$ and value-readout coefficients $\beta$.
+
+* Network objects are located in `dqn/sketch_dqn/networks.py`. The network
+used by Sketch-DQN is function `sketch_atari_network`, which relies on
+existing modules already defined in DQN Zoo.
+
+* The Sketch-DQN agent uses both the network and pre-computed coefficients.
 
 ## Citing this work
 
-Add citation details here, usually a pastable BibTeX snippet.
+If you use Sketch DQN in your research, please cite using
+
+```
+@article{wenliang2023sketchdqn,
+  title = {Distributional Bellman Operators over Mean Embeddings},
+  author = {
+    Li Kevin Wenliang and
+    Gr{\'{e}}goire Del{\'{e}}tang and
+    Matthew Aitchison and
+    Marcus Hutter and
+    Anian Ruoss and
+    Arthur Gretton and
+    Mark Rowland
+  },
+  journal={arXiv preprint},
+  year = {2023},
+}
+```
 
 ## License and disclaimer
 
