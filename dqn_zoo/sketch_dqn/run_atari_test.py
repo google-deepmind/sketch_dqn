@@ -1,4 +1,4 @@
-# Copyright 2023 DeepMind Technologies Limited
+# Copyright 2024 DeepMind Technologies Limited
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,8 +18,7 @@
 from absl import flags
 from absl.testing import absltest
 from absl.testing import flagsaver
-import jax.config
-
+import jax
 from dqn_zoo.sketch_dqn import run_atari
 
 
