@@ -7,7 +7,8 @@ Grégoire Delétang
 Matthew Aitchison,
 Marcus Hutter,
 Anian Ruoss,
-Arthur Gretton, and Mark Rowland
+Arthur Gretton,
+and Mark Rowland
 
 This is developed on top of [DQN Zoo](https://github.com/google-deepmind/dqn_zoo).
 
