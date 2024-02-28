@@ -200,8 +200,6 @@ def sketch_atari_network(
     final_nl = jax.nn.sigmoid
   elif final_nl_type == 'tanh':
     final_nl = jnp.tanh
-  elif final_nl_type == 'softmax':
-    final_nl = lambda x: x
   else:
     raise ValueError('Final nonlinearity is invalid.')
 
@@ -217,10 +215,6 @@ def sketch_atari_network(
     )
 
     q_sketch = network(inputs)
-
-    if final_nl_type == 'softmax':
-      q_sketch = jax.nn.softmax(q_sketch, axis=1)
-      q_sketch = jnp.cumsum(q_sketch, axis=1)[:, ::-1, :]
 
     if affine:
       q_sketch = jnp.pad(
