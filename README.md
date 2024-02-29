@@ -1,9 +1,9 @@
 # Sketch-DQN
 
 This repo contains the Atari experiments in the paper
-[Distributional Bellman Operator over Mean Embeddings]()
+[Distributional Bellman Operator over Mean Embeddings](https://arxiv.org/abs/2312.07358)
 by Li Kevin Wenliang,
-Grégoire Delétang
+Grégoire Déletang,
 Matthew Aitchison,
 Marcus Hutter,
 Anian Ruoss,
