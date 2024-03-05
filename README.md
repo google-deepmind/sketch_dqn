@@ -3,7 +3,7 @@
 This repo contains the Atari experiments in the paper
 [Distributional Bellman Operator over Mean Embeddings](https://arxiv.org/abs/2312.07358)
 by Li Kevin Wenliang,
-Grégoire Déletang,
+Grégoire Delétang,
 Matthew Aitchison,
 Marcus Hutter,
 Anian Ruoss,
